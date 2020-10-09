@@ -1,12 +1,3 @@
-// Assignment #: Arizona State University CSE205
-//         Name: Hasan Ghori
-//    StudentID: 1218055254
-//      Lecture: TTH 10:30-11:45
-//  Description: The Assignment7 class creates a PaneWithRectangles object
-//               on which we can draw rectangles with different
-//               colors.
-
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -29,38 +20,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import javafx.event.*;
- /*public class MusicObject{
-      private String songName;
-      private String link;
-      private int rating;
-      
-      public MusicObject(String songName, String link, int rating){
-         this.songName = songName;
-         this.link = link;
-         this.rating = rating;
-      }
-      /*
-      public void setMusicName(String someMusicName){
-         songName = someMusicName;
-      }
-
-      public void setLink(String someLink){
-         link = someLink;
-      }
-
-      public void setRating(int someRating){
-         rating = someRating;
-      }
-      
-      public String toString(){
-         String result = "\nSong Name:\t\t" + songName
-                    + "\nLink:\t" + link
-                    + "\nRating\t\t" + rating
-                    + "\n\n";
-         return result;
-      }
-   
-   }*/
 
 public class SpotifySlider extends Application
 {
@@ -93,7 +52,6 @@ public class SpotifySlider extends Application
       borderPane.setCenter(slider);
       
       
-      //ArrayList<MusicObject> musicObjects = new ArrayList<MusicObject>();
       File file = new File("VibeChamberPlaylistRanked.txt");
       Scanner scn = new Scanner(file);
       String str;
@@ -115,7 +73,6 @@ public class SpotifySlider extends Application
          rating = Integer.parseInt(ratingString);
          MusicObject someMusic = new MusicObject(songName, link, rating);
          musicObjects.add(someMusic);
-         //System.out.println(someMusic.toString());
          System.out.println("Successfully added");
          count++;
          
@@ -126,25 +83,9 @@ public class SpotifySlider extends Application
             public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue){
                selectedValue = String.format("%.2f", newValue);
                valueLabel.setText(String.format("%.2f", newValue));
-               /*selectedValueDouble = Double.parseDouble(selectedValue);
-               selectedValueDouble *= 10;
-               int selectedValueInt = (int) selectedValueDouble;
-               double randomVar = Math.random();
-               randomVar *= 84;
-               int randomInt = (int) randomVar;
-               System.out.println(randomInt);
-               for(int i = randomInt; i < musicObjects.size()-1; i++){
-                  if(musicObjects.get(i).getRating() == selectedValueInt){
-                     System.out.println(musicObjects.get(i).toString());
-                     i=musicObjects.size()-1;
-                     label = new Label(musicObjects.get(i).toString());
-                     pane.getChildren().add(label);
-                  }
-               }*/
             }
         }); 
        
-      //songArea.setText(songString);
       ButtonHandler button = new ButtonHandler();
       addSong.setOnAction(button);
       pane.getChildren().add(songArea);
@@ -193,46 +134,6 @@ public class SpotifySlider extends Application
    
    
    public static void main(String[] args) throws IOException{
-      
-      
-
-      /*ArrayList<MusicObject> musicObjects = new ArrayList<MusicObject>();
-      File file = new File("VibeChamberPlaylistRanked.txt");
-      Scanner scn = new Scanner(file);
-      String str;
-      String songNameError;
-      String songName;
-      String link;
-      String ratingString;
-      String songNameTest;
-      int rating = 0;
-      int count = 0;
-      while(scn.hasNextLine() && count != 2){
-         scn.useDelimiter(";");
-         songNameTest = scn.next();
-         StringBuilder sb = new StringBuilder(songNameTest);
-         sb.deleteCharAt(0);
-         songName = sb.toString();
-         System.out.println(songName);
-         link = scn.next();
-         ratingString = scn.next();
-         rating = Integer.parseInt(ratingString);
-         MusicObject someMusic = new MusicObject(songName, link, rating);
-         musicObjects.add(someMusic);
-         System.out.println(someMusic.toString());
-         System.out.println("Successfully added");
-         count++;
-         /*Scanner scn = new Scanner(str);
-         scn.useDelimiter(";");
-         songName = scn.nextLine();
-         link = scn.nextLine();
-         ratingString = scn.nextLine();
-         rating = Integer.parseInt(ratingString);
-         MusicObject someMusic = new MusicObject(songName, link, rating);
-         musicObjects.add(someMusic);
-         System.out.println(someMusic.toString());
-         System.out.println("Successfully added");*/
-      //}
       Application.launch(args);
    }
 }
